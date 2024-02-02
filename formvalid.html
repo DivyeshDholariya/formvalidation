@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<script type="text/javascript">
+		
+		 var testresults 
+		function getdata() {
+			var name = document.getElementById('name').value
+			var email = document.getElementById('email').value
+			var contact = document.getElementById('contact').value
+			var gender = document.getElementsByClassName('gender')
+			var hobby = document.getElementsByClassName('hobby')
+			var city = document.getElementById('city').value
+			var address = document.getElementById('address').value
+			var password = document.getElementById('password').value
+
+
+
+
+
+			if(name == '')
+			{
+				alert("Enter Name");
+				return false;
+			}
+
+			var text =/^[a-z ,.'-]+$/i;
+			
+			if(!name.match(text)){
+				alert("Enter valid name");
+				return false;
+			}
+
+			if(email == '')
+			{
+				alert("Enter email");
+				return false;
+			}
+
+			var  emailrejex= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			
+			if(!email.match(emailrejex)){
+				alert("Enter valid email");
+				return false;
+			}
+
+			if(contact == ''|| contact.length<10)
+			{
+				alert("Enter valid contact");
+				return false;
+			}
+			var con=/[0-9]/g;
+			var conn=contact.match(con);
+			if(conn==null){
+				alert("Enter contact number");
+				return false;
+			}
+			if (conn.length!=10){
+				alert("Enter valid number");
+				return false;
+			}
+			
+
+
+			if(gender[0].checked == false && gender[1].checked == false)
+			{
+				alert("Enter gender");
+				return false;
+			}
+
+			if(hobby[0].checked == false && hobby[1].checked == false)
+			{
+				alert("Enter Hobby");
+				return false;
+			}
+			if(city == '')
+			{
+				alert("Enter City");
+				return false;
+			}
+			if(address == '')
+			{
+				alert("Enter address");
+				return false;
+			}
+
+			// gopal vaghela
+			var pass=  /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{4,}$/;
+
+			if(!password.match(pass))
+			{
+				alert("Enter valid password");
+				return false;
+			}
+			
+
+
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<form  onsubmit="return getdata()">
+		<table border="5px">
+			<tr>
+				<td>Name :</td>
+
+				<td> <input type="text" id="name" name="" ></td>
+			</tr>
+
+			<tr>
+				<td>Email :</td>
+				<td> <input type="text" id="email" name="" ></td>
+			</tr>
+
+			<tr>
+				<td>Contact :</td>
+				<td> <input type="text" id="contact" name="" ></td>
+			</tr>
+
+			<tr>
+				<td>Gender :</td>
+				<td> <input type="radio" class="gender" value="male" name="gender"> Male
+				 <input type="radio" class="gender"  value="female"name="gender"> Female</td>
+			</tr>
+
+			<tr>
+				<td>Hobby :</td>
+				<td> <input type="checkbox" class="hobby" name=""> reading<br>
+					  <input type="checkbox" class="hobby" name=""> driving <br>
+					 <input type="checkbox" class="hobby" name=""> travaling <br>
+				 </td>
+			</tr> 
+			
+				 <tr>
+					<td>City :</td>
+					<td>
+							<select id="city"> 
+								<option value="">Select City</option>
+								<option value="surat">surat</option>
+								<option value="Ahmdabad">Ahmdabad</option>
+								<option value="Gandhinagar">Gandhinagar</option>
+							</select>
+						</td>
+					</tr> 
+
+					<tr>
+						<td>Address :</td>
+						<td><textarea placeholder="Enter Address" id="address"></textarea></td>
+					</tr>
+
+					<tr>
+						<td>Pasword :</td>
+						<td> <input type="text" id="password" name="" ></td>
+					</tr>
+
+			<tr>
+				<td> <input type="submit" value="click here" name="" ></td>
+			</tr>
+		</table>
+
+	</form>
+
+</body>
+</html>
